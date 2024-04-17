@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:18:48 by bjandri           #+#    #+#             */
-/*   Updated: 2024/02/22 10:53:17 by bjandri          ###   ########.fr       */
+/*   Created: 2024/04/17 14:58:19 by bjandri           #+#    #+#             */
+/*   Updated: 2024/04/17 14:58:45 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strdup(const char *s)
+void creat_stack(int ac, char **av)
 {
-	size_t	i;
-	int		len;
-	char	*dup;
+    int i;
 
-	i = 0;
-	len = ft_strlen(s);
-	dup = (char *)malloc(len * sizeof(char) + 1);
-	if (!dup)
-		return (NULL);
-	while (s[i])
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+    i = 2;
+    t_list *head;
+    t_list *new;
+    
+    head = ft_lstnew(av[1]);
+    while(i < ac - 1)
+    {
+        new = ft_lstnew(av[i]);
+        ft_lstadd_back(&head, new);
+        i++;
+    }
 }
