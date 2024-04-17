@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_stack.c                                  :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 14:58:19 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/17 15:54:38 by bjandri          ###   ########.fr       */
+/*   Created: 2024/04/17 15:57:07 by bjandri           #+#    #+#             */
+/*   Updated: 2024/04/17 15:57:37 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void creat_stack(int ac, char **av)
+void    ft_ra(t_list *stack)
 {
-    int i;
+    t_list *tmp;
 
-    i = 2;
-    t_list *head;
-    t_list *new;
-    
-    head = ft_lstnew(av[1]);
-    while(i < ac - 1)
-    {
-        new = ft_lstnew(av[i]);
-        ft_lstadd_back(&head, new);
-        i++;
-    }
+    tmp = stack;
+    stack = stack->next;
+    tmp->next = NULL;
+    ft_lstadd_back(&stack, tmp);
+}
+
+void    ft_rb(t_list *stack)
+{
+    t_list *tmp;
+
+    tmp = stack;
+    stack = stack->next;
+    tmp->next = NULL;
+    ft_lstadd_back(&stack, tmp);
+}
+
+void    ft_rr(t_list *stack_a, t_list *stack_b)
+{
+    ft_ra(stack_a);
+    ft_rb(stack_b);
 }
