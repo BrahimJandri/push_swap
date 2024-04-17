@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:15:44 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/17 15:56:09 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/17 18:10:40 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    ft_sb(t_list *stack)
     stack->next->content = tmp;
 }
 
-void    ft_ss(t_list *stack_a, t_list *stack_b)
+void    ft_swap(t_list *stack_a, t_list *stack_b)
 {
     ft_sa(stack_a);
     ft_sb(stack_b);

@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:57:07 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/17 15:57:37 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/17 18:12:18 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ void    ft_rb(t_list *stack)
     ft_lstadd_back(&stack, tmp);
 }
 
-void    ft_rr(t_list *stack_a, t_list *stack_b)
+void    ft_rotate(t_list *stack_a, t_list *stack_b)
 {
     ft_ra(stack_a);
     ft_rb(stack_b);
 }
+

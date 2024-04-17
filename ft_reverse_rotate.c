@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:57:53 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/17 15:58:10 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/17 18:12:23 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ void    ft_rrb(t_list *stack)
     last = tmp->next;
     tmp->next = NULL;
     ft_lstadd_front(&stack, last);
+}
+void    ft_reverse_rotate(t_list *stack)
+{
+    ft_rra(stack);
+    ft_rrb(stack);
 }
 
 void    ft_rrr(t_list *stack_a, t_list *stack_b)
