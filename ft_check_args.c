@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/18 14:15:29 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:24:47 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,21 @@ int ft_isnumber(char *str)
     }
     return (0);
 }
+static void    ft_error_msg(char *str)
+{
+    ft_printf("%s", str);
+    exit(0);
+}
 
 int			ft_check_args(int ac, char **av)
 {
     int i;
 
-    (void)ac;
     i = 1;
-    while(av[i])
+    while(i < ac)
     {
         if(ft_isnumber(av[i++]) == 1)
-        {
-            ft_printf("Error\n");
-            break;
-        }
+            ft_error_msg("Error\n");
     }
     return 0;
 }
