@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:22:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/17 10:38:49 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/18 12:47:32 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char				*ft_strchr(char *s, int c);
 size_t				ft_strlen(const char *str);
 char				*ft_strrchr(const char *str, int c);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);
-
+long				ft_atol(const char *str);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstnew(int content);
 t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));

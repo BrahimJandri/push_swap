@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/18 10:39:14 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/18 13:38:26 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "./libft/libft.h"
 # include <stdlib.h>
-#include <limits.h>
-
 
 typedef struct s_stack
 {
@@ -26,8 +24,9 @@ typedef struct s_stack
 
 }			t_stack;
 
-void		ft_check_args(int ac, char **av);
-void		creat_stack(int ac, char **av);
+int 		ft_isnumber(char *str);
+int			ft_check_args(int ac, char **av);
+// void		creat_stack(int ac, char **av);
 // void		ft_sa(t_list *stack);
 // void		ft_sb(t_list *stack);
 // void		ft_pa(t_list *stack_a, t_list *stack_b);
