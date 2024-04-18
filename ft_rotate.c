@@ -12,29 +12,28 @@
 
 #include "push_swap.h"
 
-void    ft_ra(t_list *stack)
+void	ft_ra(t_list *stack)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    tmp = stack;
-    stack = stack->next;
-    tmp->next = NULL;
-    ft_lstadd_back(&stack, tmp);
+	tmp = stack;
+	stack = stack->next;
+	tmp->next = NULL;
+	ft_lstadd_back(&stack, tmp);
 }
 
-void    ft_rb(t_list *stack)
+void	ft_rb(t_list *stack)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    tmp = stack;
-    stack = stack->next;
-    tmp->next = NULL;
-    ft_lstadd_back(&stack, tmp);
+	tmp = stack;
+	stack = stack->next;
+	tmp->next = NULL;
+	ft_lstadd_back(&stack, tmp);
 }
 
-void    ft_rotate(t_list *stack_a, t_list *stack_b)
+void	ft_rotate(t_list *stack_a, t_list *stack_b)
 {
-    ft_ra(stack_a);
-    ft_rb(stack_b);
+	ft_ra(stack_a);
+	ft_rb(stack_b);
 }
-

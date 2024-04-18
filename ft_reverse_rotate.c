@@ -12,40 +12,39 @@
 
 #include "push_swap.h"
 
-void    ft_rra(t_list *stack)
+void	ft_rra(t_list *stack)
 {
-    t_list *tmp;
-    t_list *last;
+	t_list	*tmp;
+	t_list	*last;
 
-    tmp = stack;
-    while (tmp->next->next)
-        tmp = tmp->next;
-    last = tmp->next;
-    tmp->next = NULL;
-    ft_lstadd_front(&stack, last);
+	tmp = stack;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	last = tmp->next;
+	tmp->next = NULL;
+	ft_lstadd_front(&stack, last);
 }
 
-void    ft_rrb(t_list *stack)
+void	ft_rrb(t_list *stack)
 {
-    t_list *tmp;
-    t_list *last;
+	t_list	*tmp;
+	t_list	*last;
 
-    tmp = stack;
-    while (tmp->next->next)
-        tmp = tmp->next;
-    last = tmp->next;
-    tmp->next = NULL;
-    ft_lstadd_front(&stack, last);
+	tmp = stack;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	last = tmp->next;
+	tmp->next = NULL;
+	ft_lstadd_front(&stack, last);
 }
-void    ft_reverse_rotate(t_list *stack)
+void	ft_reverse_rotate(t_list *stack)
 {
-    ft_rra(stack);
-    ft_rrb(stack);
-}
-
-void    ft_rrr(t_list *stack_a, t_list *stack_b)
-{
-    ft_rra(stack_a);
-    ft_rrb(stack_b);
+	ft_rra(stack);
+	ft_rrb(stack);
 }
 
+void	ft_rrr(t_list *stack_a, t_list *stack_b)
+{
+	ft_rra(stack_a);
+	ft_rrb(stack_b);
+}

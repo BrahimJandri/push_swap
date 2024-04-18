@@ -12,29 +12,28 @@
 
 #include "push_swap.h"
 
-void    ft_pa(t_list *stack_a, t_list *stack_b)
+void	ft_pa(t_list *stack_a, t_list *stack_b)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    tmp = stack_b;
-    stack_b = stack_b->next;
-    tmp->next = stack_a;
-    stack_a = tmp;
+	tmp = stack_b;
+	stack_b = stack_b->next;
+	tmp->next = stack_a;
+	stack_a = tmp;
 }
 
-void    ft_pb(t_list *stack_a, t_list *stack_b)
+void	ft_pb(t_list *stack_a, t_list *stack_b)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    tmp = stack_a;
-    stack_a = stack_a->next;
-    tmp->next = stack_b;
-    stack_b = tmp;
+	tmp = stack_a;
+	stack_a = stack_a->next;
+	tmp->next = stack_b;
+	stack_b = tmp;
 }
 
-void    ft_push(t_list *stack_a, t_list *stack_b)
+void	ft_push(t_list *stack_a, t_list *stack_b)
 {
-    ft_pa(stack_a, stack_b);
-    ft_pb(stack_a, stack_b);
+	ft_pa(stack_a, stack_b);
+	ft_pb(stack_a, stack_b);
 }
-
