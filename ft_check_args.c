@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/19 09:06:46 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/19 09:53:51 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,33 @@ static int ft_isnumber(char *str)
 static int ft_check_doubl(char *str)
 {
     int i = 0;
-    while(str[i] && str[i + 1])
+    int j = 0;
+    int *tab;
+    int len;
+    
+    len = ft_strlen(str);
+    tab = (int *)malloc(sizeof(int) * len);
+    while(str[i])
     {
-        if(str[i] == str[i + 1])
-            return (1);
+        tab[i] = str[i];
         i++;
     }
+    i = 0;
+    while(i < len)
+    {
+        j = i + 1;
+        while(j < len)
+        {
+            if(tab[i] == tab[j])
+            {
+                free(tab);
+                return (1);
+            }
+            j++;
+        }
+        i++;
+    }
+    free(tab);
     return (0);
 }
 
