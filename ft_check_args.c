@@ -6,13 +6,13 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/18 19:24:47 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/19 09:06:46 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_isnumber(char *str)
+static int ft_isnumber(char *str)
 {
     int i;
     
@@ -26,6 +26,19 @@ int ft_isnumber(char *str)
     }
     return (0);
 }
+
+static int ft_check_doubl(char *str)
+{
+    int i = 0;
+    while(str[i] && str[i + 1])
+    {
+        if(str[i] == str[i + 1])
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
 static void    ft_error_msg(char *str)
 {
     ft_printf("%s", str);
@@ -39,8 +52,11 @@ int			ft_check_args(int ac, char **av)
     i = 1;
     while(i < ac)
     {
-        if(ft_isnumber(av[i++]) == 1)
+        if(ft_isnumber(av[i]) == 1)
             ft_error_msg("Error\n");
+        if(ft_check_doubl(av[i]) == 1)
+            ft_error_msg("Error\n");
+        i++;
     }
-    return 0;
+    return (0);
 }

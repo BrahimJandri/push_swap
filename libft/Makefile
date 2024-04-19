@@ -6,7 +6,7 @@
 #    By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/22 12:22:53 by bjandri           #+#    #+#              #
-#    Updated: 2024/04/18 12:50:06 by bjandri          ###   ########.fr        #
+#    Updated: 2024/04/19 09:34:37 by bjandri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ FUNC := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
        ft_printf.c ft_printf_char.c ft_printf_hexlow.c ft_printf_hexupp.c \
 	ft_printf_str.c ft_printf_int.c ft_printf_unsigned.c ft_printf_add.c ft_free.c \
        ft_atol.c ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstlast_bonus.c ft_lstnew_bonus.c \
-       ft_lstsize_bonus.c ft_lstsize_bonus.c
+       ft_lstsize_bonus.c ft_lstsize_bonus.c ft_lstadd_front_bonus.c 
 OBJS := $(FUNC:.c=.o)
 CC := cc
 CFLAGS := -Wall -Wextra -Werror -fPIE
