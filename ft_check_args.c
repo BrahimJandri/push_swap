@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/19 09:53:51 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/19 12:09:31 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,22 @@ static int ft_check_doubl(char *str)
     return (0);
 }
 
+static int  ft_check_int(int len, char *str)
+{
+    long tmp;
+    int i;
+
+    i = 0;
+    while(i < len)
+    {
+        tmp = ft_atol(&str[i]);
+        if(tmp > 2147483647 || tmp < -2147483648)
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
 static void    ft_error_msg(char *str)
 {
     ft_printf("%s", str);
@@ -69,14 +85,18 @@ static void    ft_error_msg(char *str)
 int			ft_check_args(int ac, char **av)
 {
     int i;
-
+    int len;
+    
     i = 1;
+    len = ac -1;
     while(i < ac)
     {
         if(ft_isnumber(av[i]) == 1)
-            ft_error_msg("Error\n");
+            ft_error_msg("Error not number\n");
         if(ft_check_doubl(av[i]) == 1)
-            ft_error_msg("Error\n");
+            ft_error_msg("Error double\n");
+        if(ft_check_int(len, av[i]))
+            ft_error_msg("Error max or min\n");
         i++;
     }
     return (0);
