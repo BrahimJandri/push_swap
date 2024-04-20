@@ -6,12 +6,11 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:47:04 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/19 16:44:02 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 14:21:44 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 long	ft_atol(const char *str)
 {

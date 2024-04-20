@@ -5,7 +5,7 @@ RM = rm -f
 AR = ar rcs
 LIBFT = ./libft/libft.a
 
-SRC = ft_check_args.c main.c 
+SRC = ft_check_args.c main.c ft_helper_func.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

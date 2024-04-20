@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_helper_func.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 09:02:13 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 14:21:20 by bjandri          ###   ########.fr       */
+/*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
+/*   Updated: 2024/04/20 14:20:32 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_free_str(char **str)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	int	i;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+void	ft_error_msg(char *str)
+{
+	ft_printf("%s", str);
+	exit(0);
 }
