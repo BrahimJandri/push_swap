@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 14:18:53 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 17:07:18 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,18 @@ static void	ft_check_doubl(int len, char **str)
 static void	ft_check_empty(char *str)
 {
 	int	i;
+	int non_space_found;
 
 	i = 0;
+	non_space_found = 0;
 	while (str[i])
 	{
-		if (str[i] == ' ' || str[i] == '\t')
-			ft_error_msg("Error empty arg\n");
+		if (str[i] != ' ' || str[i] != '\t')
+			non_space_found = 1;
 		i++;
 	}
+	if(!non_space_found)
+		ft_error_msg("Error empty arg\n");
 }
 
 void	ft_check_args(int ac, char **av)
@@ -78,6 +82,7 @@ void	ft_check_args(int ac, char **av)
 	ft_check_doubl(ac, av);
 	while (i < ac)
 	{
+		ft_check_empty(av[i]);
 		str = ft_split(av[i], ' ');
 		if (!str)
 			ft_error_msg("Memory allocation failed\n");
@@ -85,7 +90,6 @@ void	ft_check_args(int ac, char **av)
 		while (str[j])
 		{
 			ft_isnumber(str[j]);
-			ft_check_empty(str[j]);
 			ft_check_int(str[j]);
 			j++;
 		}

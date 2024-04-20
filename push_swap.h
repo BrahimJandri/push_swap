@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 14:18:03 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 15:32:15 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_stack
 	t_list	*next;
 	t_list	*prev;
 	int		size;
-
 }			t_stack;
 
 void		ft_check_args(int ac, char **av);

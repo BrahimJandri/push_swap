@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:18:05 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 10:40:04 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 17:46:55 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static size_t	ft_count_words(const char *s, char c)
 	counter = 0;
 	while (*s)
 	{
-		while (*s == c)
+		while (*s == c || *s == '\t')
 			s++;
 		if (*s)
 		{
 			counter++;
-			while (*s && *s != c)
+			while (*s && *s != c && *s != '\t')
 				s++;
 		}
 	}
@@ -65,9 +65,9 @@ static char	**ft_words_split(char **result, char const *s, char c,
 	word_len = 0;
 	while (s[j] && i < word_count)
 	{
-		while (s[j] && s[j] == c)
+		while (s[j] && (s[j] == c || s[j] == '\t'))
 			j++;
-		while (s[j] && s[j] != c)
+		while (s[j] && s[j] != c && s[j] != '\t')
 		{
 			j++;
 			word_len++;
@@ -97,18 +97,3 @@ char	**ft_split(char const *s, char c)
 	result = ft_words_split(result, s, c, word_counter);
 	return (result);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-//     char **result = ft_split("hello world split me please ", ' ');
-
-//     for (int i = 0; result[i] != NULL; ++i)
-// 	{
-//         printf("Token %d: \n%s\n", i + 1, result[i]);
-// 		free(result[i]);
-//     }
-// 	free(result);
-// 		return (0);
-// }
