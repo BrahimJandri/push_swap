@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 11:38:47 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 12:46:45 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static void ft_isnumber(char *str)
     
     i = 0;
     if ((str[i] == '-' && str[i + 1] != '\0') || (str[i] == '+' && str[i + 1] != '\0'))
+        i++;
+    if(str[i] == ' ' || str[i] == '\t')
         i++;
     while (str[i])
     {
