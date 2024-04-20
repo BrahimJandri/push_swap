@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 09:36:29 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 10:48:30 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ static int ft_check_empty(char *str)
     i = 0;
     while(str[i])
     {
-        if(str[i] != ' ')
+        if(str[i] != ' ' || str[i] != '\t')
             return 0;
-        i++;   
+        i++;
     }
     return 1;
 }
@@ -101,8 +101,6 @@ int ft_check_args(int ac, char **av)
         ft_error_msg("Error double\n");
     while (i < ac)
     {
-        if(ft_check_empty(av[i]))
-            ft_error_msg("Error one arg is Empty\n");
         str = ft_split(av[i], ' ');
         if (!str)
             ft_error_msg("Memory allocation failed\n");
@@ -111,6 +109,8 @@ int ft_check_args(int ac, char **av)
         {
             if (ft_isnumber(str[j]))
                 ft_error_msg("Error not number\n");
+            if(ft_check_empty(str[i]))
+                ft_error_msg("Error one arg is Empty\n");
             if (ft_check_int(str[j]))
                 ft_error_msg("Error max or min\n");
             j++;
