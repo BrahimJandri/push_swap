@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 11:27:19 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 11:38:47 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void ft_check_empty(char *str)
     i = 0;
     while(str[i])
     {
-        if(str[i] != ' ' || str[i] != '\t')
+        if(str[i] == ' ' || str[i] == '\t')
             ft_error_msg("Error empty arg\n");
         i++;
     }
@@ -86,6 +86,7 @@ static void ft_free_str(char **str)
     }
     free(str);
 }
+
 void ft_check_args(int ac, char **av)
 {
     int i;
@@ -94,7 +95,7 @@ void ft_check_args(int ac, char **av)
     
     i = 1;
     ft_check_doubl(ac, av);
-    while (i < ac - 1)
+    while (i < ac)
     {
         str = ft_split(av[i], ' ');
         if (!str)
@@ -103,7 +104,7 @@ void ft_check_args(int ac, char **av)
         while (str[j])
         {
             ft_isnumber(str[j]);
-            ft_check_empty(str[i]);
+            ft_check_empty(str[j]);
             ft_check_int(str[j]);
             j++;
         }   
