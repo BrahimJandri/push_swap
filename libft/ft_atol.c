@@ -6,35 +6,34 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:47:04 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/18 12:47:06 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/19 16:44:02 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+
 long	ft_atol(const char *str)
 {
-	int		i;
-	long	res;
 	int		sign;
+	long	resu;
+	char	*s;
 
-	i = 0;
-	res = 0;
 	sign = 1;
-	while ((str[i] <= 13 && str[i] >= 9) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
+	resu = 0;
+	s = (char *)str;
+	while ((*s >= 9 && *s <= 13) || *s == 32)
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		sign *= -1;
-		i++;
+		if (*s == '-')
+			sign *= -1;
+		s++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] <= '9' && str[i] >= '0')
+	while (*s >= '0' && *s <= '9')
 	{
-		res = (res * 10);
-		res += str[i] - '0';
-		i++;
+		resu = resu * 10 + *s - '0';
+		s++;
 	}
-	return (res * sign);
+	return (resu * sign);
 }

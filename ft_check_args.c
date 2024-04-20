@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/19 12:09:31 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/20 09:36:29 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,87 +17,106 @@ static int ft_isnumber(char *str)
     int i;
     
     i = 0;
-    if((str[i] == '-' && str[i + 1] != 0) || (str[i] == '+' && str[i + 1] != 0))
+    if ((str[i] == '-' && str[i + 1] != '\0') || (str[i] == '+' && str[i + 1] != '\0'))
         i++;
-    while(str[i])
+    while (str[i])
     {
-        if(!ft_isdigit(str[i++]))
-            return (1);
+        if (!ft_isdigit(str[i]))
+            return 1;
+        i++;
     }
-    return (0);
+    return 0;
 }
 
-static int ft_check_doubl(char *str)
+
+static int ft_check_int(char *str)
 {
-    int i = 0;
-    int j = 0;
-    int *tab;
-    int len;
+    long tmp;
     
-    len = ft_strlen(str);
-    tab = (int *)malloc(sizeof(int) * len);
-    while(str[i])
-    {
-        tab[i] = str[i];
-        i++;
-    }
-    i = 0;
-    while(i < len)
+    tmp = ft_atol(str);
+    if (tmp > 2147483647 || tmp < -2147483648)
+        return 1;
+    return 0;
+}
+
+static int ft_check_doubl(int len, char **str)
+{
+    int i;
+    int j;
+    
+    i = 1;
+    while(i < len - 1)
     {
         j = i + 1;
         while(j < len)
         {
-            if(tab[i] == tab[j])
-            {
-                free(tab);
+            if(ft_atoi(str[i]) == ft_atoi(str[j]))
                 return (1);
-            }
             j++;
         }
         i++;
     }
-    free(tab);
-    return (0);
+    return 0;
 }
 
-static int  ft_check_int(int len, char *str)
-{
-    long tmp;
-    int i;
-
-    i = 0;
-    while(i < len)
-    {
-        tmp = ft_atol(&str[i]);
-        if(tmp > 2147483647 || tmp < -2147483648)
-            return (1);
-        i++;
-    }
-    return (0);
-}
-
-static void    ft_error_msg(char *str)
+static void ft_error_msg(char *str)
 {
     ft_printf("%s", str);
     exit(0);
 }
 
-int			ft_check_args(int ac, char **av)
+static int ft_check_empty(char *str)
 {
     int i;
-    int len;
-    
-    i = 1;
-    len = ac -1;
-    while(i < ac)
+
+    i = 0;
+    while(str[i])
     {
-        if(ft_isnumber(av[i]) == 1)
-            ft_error_msg("Error not number\n");
-        if(ft_check_doubl(av[i]) == 1)
-            ft_error_msg("Error double\n");
-        if(ft_check_int(len, av[i]))
-            ft_error_msg("Error max or min\n");
+        if(str[i] != ' ')
+            return 0;
+        i++;   
+    }
+    return 1;
+}
+
+static void ft_free_str(char **str)
+{
+    int i = 0;
+    
+    while (str[i] != NULL)
+    {
+        free(str[i]);
         i++;
     }
-    return (0);
+    free(str);
+}
+int ft_check_args(int ac, char **av)
+{
+    int i;
+    int j;
+    char **str;
+    
+    i = 1;
+    if (ft_check_doubl(ac, av))
+        ft_error_msg("Error double\n");
+    while (i < ac)
+    {
+        if(ft_check_empty(av[i]))
+            ft_error_msg("Error one arg is Empty\n");
+        str = ft_split(av[i], ' ');
+        if (!str)
+            ft_error_msg("Memory allocation failed\n");
+        j = 0;
+        while (str[j])
+        {
+            if (ft_isnumber(str[j]))
+                ft_error_msg("Error not number\n");
+            if (ft_check_int(str[j]))
+                ft_error_msg("Error max or min\n");
+            j++;
+        }   
+        ft_free_str(str);
+        i++;
+    }
+    return 0;
 }
