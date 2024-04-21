@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:58:19 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 12:09:36 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 16:22:25 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ t_list	*ft_creat_stack(int ac, char **av)
 
 	if (ac < 2)
 		return (NULL);
+
+	i = 1;
 	head = ft_lstnew(ft_atoi(av[1]));
 	if (!head)
 		return (NULL);
-	i = 2;
-	while (i < ac)
+	while (av[i] != NULL)
 	{
 		new = ft_lstnew(ft_atoi(av[i]));
 		if (!new)
@@ -35,5 +36,6 @@ t_list	*ft_creat_stack(int ac, char **av)
 		ft_lstadd_back(&head, new);
 		i++;
 	}
+	ft_free_str(av);
 	return (head);
 }

@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 12:14:21 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 17:15:50 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ static void	ft_check_int(char *str)
 	}
 }
 
-static void	ft_check_doubl(int len, char **str)
+static void	ft_check_doubl(char **str)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while (i < len - 1)
+	while (str[i] != NULL)
 	{
 		j = i + 1;
-		while (j < len)
+		while (str[j] != NULL)
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
 				ft_error_msg("Error\n");
@@ -88,17 +88,18 @@ static void	ft_check_empty(char *str)
 		ft_error_msg("Error\n");
 }
 
-void	ft_check_args(int ac, char **av)
+void	ft_check_args(int ac, char **av, t_stack *a)
 {
 	int		i;
 	char	**str;
 	char	*string;
 
 	i = 1;
-	ft_check_doubl(ac, av);
 	string = ft_join(av);
 	str = ft_split(string, ' ');
+	ft_check_doubl(str);
 	free(string);
+	i = 1;
 	if (!str)
 		ft_error_msg("Memory allocation failed\n");
 	while (i < ac)
@@ -107,5 +108,5 @@ void	ft_check_args(int ac, char **av)
 		ft_check_int(str[i]);
 		i++;
 	}
-	ft_free_str(str);
+	a->str = str;
 }

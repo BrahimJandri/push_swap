@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 14:18:17 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 17:14:14 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,15 @@ void	del(int data)
 {
 	(void)data;
 }
-
-void print_stack(t_list *stack)
+void free_stack(t_list **top)
 {
-    t_list *current = stack;
-    while (current != NULL)
+	t_list *head = *top;
+	while(head != NULL)
 	{
-        ft_printf("%d\n", current->content);
-        current = current->next;
-    }
-    t_list *max = ft_find_max(stack);
-    ft_printf("max: %d\n", max->content); 
+		head = head->next;
+		free(*top);
+		*top = head;
+	}
 }
 
 t_list *ft_find_max(t_list *stack)
