@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 10:21:31 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 10:48:43 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,17 @@ void	ft_check_empty(char *str)
 	int len;
 
 	i = 0;
+    if (!str)
+    {
+        ft_error_msg("Error empty arg\n");
+    }
 	len = ft_strlen(str);
 	while (str[i])
 	{
 		if (str[i] == ' ' || str[i] == '\t')
 			i++;
+        else
+            break;
 	}
 	if(i == len)
 		ft_error_msg("Error empty arg\n");
@@ -97,7 +103,7 @@ void	ft_check_args(int ac, char **av)
 		ft_error_msg("Memory allocation failed\n");
 	while (i < ac)
 	{
-		// ft_check_empty(str[i]);
+		ft_check_empty(str[i]);
 		ft_check_int(str[i]);
 		ft_printf("arg %d : %s\n", i ,str[i]);
 		i++;
