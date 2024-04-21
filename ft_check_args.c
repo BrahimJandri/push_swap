@@ -6,19 +6,23 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 17:07:18 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 10:21:31 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_isnumber(char *str)
+void	ft_check_int(char *str)
 {
 	int	i;
+	long	tmp;
 
+	tmp = ft_atol(str);
 	i = 0;
 	if ((str[i] == '-' || str[i] == '+') && (str[i + 1]))
 		i++;
+	if (tmp > 2147483647 || tmp < -2147483648)
+		ft_error_msg("Error max or min\n");
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -27,16 +31,7 @@ static void	ft_isnumber(char *str)
 	}
 }
 
-static void	ft_check_int(char *str)
-{
-	long	tmp;
-
-	tmp = ft_atol(str);
-	if (tmp > 2147483647 || tmp < -2147483648)
-		ft_error_msg("Error max or min\n");
-}
-
-static void	ft_check_doubl(int len, char **str)
+void	ft_check_doubl(int len, char **str)
 {
 	int	i;
 	int	j;
@@ -54,46 +49,58 @@ static void	ft_check_doubl(int len, char **str)
 		i++;
 	}
 }
-
-static void	ft_check_empty(char *str)
+char *ft_join(char **str)
 {
-	int	i;
-	int non_space_found;
-
+	int i;
+	char *string;
+	
 	i = 0;
-	non_space_found = 0;
-	while (str[i])
+	string = NULL;
+	while(str[i])
 	{
-		if (str[i] != ' ' || str[i] != '\t')
-			non_space_found = 1;
+		string = ft_strjoin(string, str[i]);
+		string = ft_strjoin(string, " ");
 		i++;
 	}
-	if(!non_space_found)
+	return(string);
+}
+
+void	ft_check_empty(char *str)
+{
+	int i;
+	int len;
+
+	i = 0;
+	len = ft_strlen(str);
+	while (str[i])
+	{
+		if (str[i] == ' ' || str[i] == '\t')
+			i++;
+	}
+	if(i == len)
 		ft_error_msg("Error empty arg\n");
 }
+
 
 void	ft_check_args(int ac, char **av)
 {
 	int		i;
-	int		j;
 	char	**str;
-
+	char *string;
+	
 	i = 1;
 	ft_check_doubl(ac, av);
+	string = ft_join(av);
+	str = ft_split(string, ' ');
+	free(string);
+	if (!str)
+		ft_error_msg("Memory allocation failed\n");
 	while (i < ac)
 	{
-		ft_check_empty(av[i]);
-		str = ft_split(av[i], ' ');
-		if (!str)
-			ft_error_msg("Memory allocation failed\n");
-		j = 0;
-		while (str[j])
-		{
-			ft_isnumber(str[j]);
-			ft_check_int(str[j]);
-			j++;
-		}
-		ft_free_str(str);
+		// ft_check_empty(str[i]);
+		ft_check_int(str[i]);
+		ft_printf("arg %d : %s\n", i ,str[i]);
 		i++;
 	}
+	ft_free_str(str);
 }

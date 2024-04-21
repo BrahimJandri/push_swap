@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:26:59 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 14:21:03 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 08:18:14 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	main(int ac, char **av)
 {
+	// t_stack *a;
+	// t_stack	*b;
+	
+	
 	ft_check_args(ac, av);
+	// a = ft_creat_stack(ac, av);
 	return (0);
 }
