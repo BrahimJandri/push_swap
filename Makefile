@@ -5,7 +5,8 @@ RM = rm -f
 AR = ar rcs
 LIBFT = ./libft/libft.a
 
-SRC = ft_check_args.c main.c ft_helper_func.c ft_create_stack.c
+SRC = ft_check_args.c main.c ft_helper_func.c ft_create_stack.c ft_sort_three.c \
+	ft_push.c ft_swap.c ft_rotate.c ft_reverse_rotate.c \
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
