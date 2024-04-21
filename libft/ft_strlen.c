@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 10:20:53 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 08:24:54 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 12:12:32 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlen(const char *str)
 
 	i = 0;
 	if (str == NULL)
-		return 0;
+		return (0);
 	while (str[i])
 		i++;
 	return (i);

@@ -19,10 +19,10 @@ t_list	*ft_creat_stack(int ac, char **av)
 	int		i;
 
 	if (ac < 2)
-		return NULL;
+		return (NULL);
 	head = ft_lstnew(ft_atoi(av[1]));
 	if (!head)
-		return NULL;
+		return (NULL);
 	i = 2;
 	while (i < ac)
 	{
@@ -30,11 +30,10 @@ t_list	*ft_creat_stack(int ac, char **av)
 		if (!new)
 		{
 			ft_lstclear(&head, del);
-			return NULL;
+			return (NULL);
 		}
 		ft_lstadd_back(&head, new);
 		i++;
 	}
 	return (head);
 }
-

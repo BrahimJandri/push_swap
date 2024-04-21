@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 11:39:48 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 12:14:21 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_check_int(char *str)
 {
-	int	i;
+	int		i;
 	long	tmp;
 
 	tmp = ft_atol(str);
@@ -49,51 +49,51 @@ static void	ft_check_doubl(int len, char **str)
 		i++;
 	}
 }
-static char *ft_join(char **str)
+
+static char	*ft_join(char **str)
 {
-	int i;
-	char *string;
-	
+	int		i;
+	char	*string;
+
 	i = 0;
 	string = NULL;
-	while(str[i])
+	while (str[i])
 	{
 		string = ft_strjoin(string, str[i]);
 		string = ft_strjoin(string, " ");
 		i++;
 	}
-	return(string);
+	return (string);
 }
 
 static void	ft_check_empty(char *str)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
-    if (!str)
-    {
-        ft_error_msg("Error\n");
-    }
+	if (!str)
+	{
+		ft_error_msg("Error\n");
+	}
 	len = ft_strlen(str);
 	while (str[i])
 	{
 		if (str[i] == ' ')
 			i++;
-        else
-            break;
+		else
+			break ;
 	}
-	if(i == len)
+	if (i == len)
 		ft_error_msg("Error\n");
 }
-
 
 void	ft_check_args(int ac, char **av)
 {
 	int		i;
 	char	**str;
-	char *string;
-	
+	char	*string;
+
 	i = 1;
 	ft_check_doubl(ac, av);
 	string = ft_join(av);
