@@ -6,13 +6,13 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 10:48:43 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 11:39:48 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_int(char *str)
+static void	ft_check_int(char *str)
 {
 	int	i;
 	long	tmp;
@@ -22,16 +22,16 @@ void	ft_check_int(char *str)
 	if ((str[i] == '-' || str[i] == '+') && (str[i + 1]))
 		i++;
 	if (tmp > 2147483647 || tmp < -2147483648)
-		ft_error_msg("Error max or min\n");
+		ft_error_msg("Error\n");
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			ft_error_msg("Error is not number\n");
+			ft_error_msg("Error\n");
 		i++;
 	}
 }
 
-void	ft_check_doubl(int len, char **str)
+static void	ft_check_doubl(int len, char **str)
 {
 	int	i;
 	int	j;
@@ -43,13 +43,13 @@ void	ft_check_doubl(int len, char **str)
 		while (j < len)
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
-				ft_error_msg("Error double\n");
+				ft_error_msg("Error\n");
 			j++;
 		}
 		i++;
 	}
 }
-char *ft_join(char **str)
+static char *ft_join(char **str)
 {
 	int i;
 	char *string;
@@ -65,7 +65,7 @@ char *ft_join(char **str)
 	return(string);
 }
 
-void	ft_check_empty(char *str)
+static void	ft_check_empty(char *str)
 {
 	int i;
 	int len;
@@ -73,18 +73,18 @@ void	ft_check_empty(char *str)
 	i = 0;
     if (!str)
     {
-        ft_error_msg("Error empty arg\n");
+        ft_error_msg("Error\n");
     }
 	len = ft_strlen(str);
 	while (str[i])
 	{
-		if (str[i] == ' ' || str[i] == '\t')
+		if (str[i] == ' ')
 			i++;
         else
             break;
 	}
 	if(i == len)
-		ft_error_msg("Error empty arg\n");
+		ft_error_msg("Error\n");
 }
 
 
@@ -105,7 +105,6 @@ void	ft_check_args(int ac, char **av)
 	{
 		ft_check_empty(str[i]);
 		ft_check_int(str[i]);
-		ft_printf("arg %d : %s\n", i ,str[i]);
 		i++;
 	}
 	ft_free_str(str);

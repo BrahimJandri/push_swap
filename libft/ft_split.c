@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:18:05 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/20 17:46:55 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/21 11:40:57 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static size_t	ft_count_words(const char *s, char c)
 	counter = 0;
 	while (*s)
 	{
-		while (*s == c || *s == '\t')
+		while (*s == c)
 			s++;
 		if (*s)
 		{
 			counter++;
-			while (*s && *s != c && *s != '\t')
+			while (*s && *s != c)
 				s++;
 		}
 	}
@@ -65,9 +65,9 @@ static char	**ft_words_split(char **result, char const *s, char c,
 	word_len = 0;
 	while (s[j] && i < word_count)
 	{
-		while (s[j] && (s[j] == c || s[j] == '\t'))
+		while (s[j] && (s[j] == c))
 			j++;
-		while (s[j] && s[j] != c && s[j] != '\t')
+		while (s[j] && s[j] != c)
 		{
 			j++;
 			word_len++;
