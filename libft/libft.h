@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:22:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 18:13:41 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 11:01:31 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_list
 {
 	int				index;
+	int				max;
 	int				content;
 	struct s_list	*next;
 }					t_list;

@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 17:15:50 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 11:59:19 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,11 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	i = 1;
 	string = ft_join(av);
 	str = ft_split(string, ' ');
+	if (!str)
+		ft_error_msg("Memory allocation failed\n");
 	ft_check_doubl(str);
 	free(string);
 	i = 1;
-	if (!str)
-		ft_error_msg("Memory allocation failed\n");
 	while (i < ac)
 	{
 		ft_check_empty(str[i]);

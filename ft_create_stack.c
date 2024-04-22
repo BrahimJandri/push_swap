@@ -20,10 +20,8 @@ t_list	*ft_creat_stack(int ac, char **av)
 
 	if (ac < 2)
 		return (NULL);
-
 	i = 2;
 	head = ft_lstnew(ft_atoi(av[1]));
-	
 	if (!head)
 		return (NULL);
 	while (av[i] != NULL)

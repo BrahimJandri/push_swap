@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:55:42 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 14:38:38 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 09:24:02 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_pa(t_list *stack_a, t_list *stack_b)
 	stack_b = stack_b->next;
 	tmp->next = stack_a;
 	stack_a = tmp;
+	ft_printf("pa\n");
 }
 
 void	ft_pb(t_list *stack_a, t_list *stack_b)
@@ -30,6 +31,7 @@ void	ft_pb(t_list *stack_a, t_list *stack_b)
 	stack_a = stack_a->next;
 	tmp->next = stack_b;
 	stack_b = tmp;
+	ft_printf("pb\n");
 }
 
 void	ft_push(t_list *stack_a, t_list *stack_b)

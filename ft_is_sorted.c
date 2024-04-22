@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_three.c                                    :+:      :+:    :+:   */
+/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/21 14:25:19 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 11:58:00 by bjandri          ###   ########.fr       */
+/*   Created: 2024/04/22 09:30:41 by bjandri           #+#    #+#             */
+/*   Updated: 2024/04/22 11:02:53 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_sort_three(t_list **stack)
+int	ft_is_sorted(t_list *stack)
 {
-	t_list	*last;
-	int		max;
-
-	last = ft_lstlast(*stack);
-	max = ft_find_max(*stack);
-	while (last->content != max)
+	while (stack != NULL && stack->next != NULL)
 	{
-		ft_ra(stack);
-		last = ft_lstlast(*stack);
+		if (stack->content > stack->next->content)
+			return (0);
+		stack = stack->next;
 	}
-	if ((*stack)->content > (*stack)->next->content)
-		ft_sa(stack);
-	return (*stack);
+	return (1);
 }
