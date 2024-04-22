@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:22:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 11:01:31 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 15:25:16 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 typedef struct s_list
 {
-	int				index;
 	int				max;
+	int				min;
 	int				content;
 	struct s_list	*next;
 }					t_list;
@@ -73,7 +73,6 @@ int					ft_strncmp(const char *str1, const char *str2, size_t n);
 long				ft_atol(const char *str);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstnew(int content);
-t_list				*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstclear(t_list **lst, void (*del)(int));
 void				ft_lstadd_back(t_list **lst, t_list *new);

@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 12:02:25 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 15:25:27 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,35 @@ int	ft_find_max(t_list *stack)
 		cur = cur->next;
 	}
 	return (max->content);
+}
+
+int	ft_find_min(t_list *stack)
+{
+	t_list	*min;
+	t_list	*cur;
+
+	min = stack;
+	cur = stack->next;
+	while (cur != NULL)
+	{
+		if (cur->content < min->content)
+			min = cur;
+		cur = cur->next;
+	}
+	return (min->content);
+}
+
+int	ft_stack_len(t_list *stack)
+{
+	int	count;
+
+	if (!stack)
+		return (0);
+	count = 0;
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
 }

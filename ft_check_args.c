@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 11:59:19 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 14:38:29 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,17 @@ static void	ft_check_int(char *str)
 	if ((str[i] == '-' || str[i] == '+') && (str[i + 1]))
 		i++;
 	if (tmp > 2147483647 || tmp < -2147483648)
+	{
+		free(str);
 		ft_error_msg("Error\n");
+	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
+		{
+			free(str);
 			ft_error_msg("Error\n");
+		}
 		i++;
 	}
 }
@@ -37,13 +43,16 @@ static void	ft_check_doubl(char **str)
 	int	j;
 
 	i = 1;
-	while (str[i] != NULL)
+	while (str[i])
 	{
 		j = i + 1;
-		while (str[j] != NULL)
+		while (str[j])
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
+			{
+				ft_free_str(str);
 				ft_error_msg("Error\n");
+			}
 			j++;
 		}
 		i++;
@@ -74,6 +83,7 @@ static void	ft_check_empty(char *str)
 	i = 0;
 	if (!str)
 	{
+		free(str);
 		ft_error_msg("Error\n");
 	}
 	len = ft_strlen(str);
@@ -85,7 +95,10 @@ static void	ft_check_empty(char *str)
 			break ;
 	}
 	if (i == len)
+	{
+		free(str);
 		ft_error_msg("Error\n");
+	}
 }
 
 void	ft_check_args(int ac, char **av, t_stack *a)
@@ -98,7 +111,11 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	string = ft_join(av);
 	str = ft_split(string, ' ');
 	if (!str)
+	{
+		ft_free_str(str);
 		ft_error_msg("Memory allocation failed\n");
+	}
+		
 	ft_check_doubl(str);
 	free(string);
 	i = 1;

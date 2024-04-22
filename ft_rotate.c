@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:57:07 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 11:55:16 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 15:02:55 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,24 @@ void	ft_ra(t_list **stack)
 		last->next = first;
 		first->next = NULL;
 		*stack = second;
-		// ft_lstadd_back(&second, first);
 		ft_printf("ra\n");
 	}
 }
 
 void	ft_rb(t_list **stack)
 {
-	t_list	*tmp;
+	t_list	*first;
+	t_list	*second;
+	t_list	*last;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
-		tmp = *stack;
-		*stack = (*stack)->next;
-		tmp->next = NULL;
-		ft_lstadd_back(&*stack, tmp);
+		first = *stack;
+		last = ft_lstlast(*stack);
+		second = (*stack)->next;
+		last->next = first;
+		first->next = NULL;
+		*stack = second;
 		ft_printf("rb\n");
 	}
 }

@@ -6,35 +6,41 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:55:42 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 09:24:02 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/22 16:20:44 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pa(t_list *stack_a, t_list *stack_b)
+void	ft_pa(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*tmp;
+    
+	if ((*stack_b) != NULL)
+    {
+        tmp = *stack_b;
+	    *stack_b = (*stack_b)->next;
+	    tmp->next = *stack_a;
+	    *stack_a = tmp;
+	    ft_printf("pa\n");
+    }
+}
+
+void	ft_pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	tmp = stack_b;
-	stack_b = stack_b->next;
-	tmp->next = stack_a;
-	stack_a = tmp;
-	ft_printf("pa\n");
+	if ((*stack_a) != NULL)
+    {
+        tmp = *stack_a;
+        *stack_a = (*stack_a)->next;
+        tmp->next = *stack_b;
+        *stack_b = tmp;
+        ft_printf("pb\n");
+    }
 }
 
-void	ft_pb(t_list *stack_a, t_list *stack_b)
-{
-	t_list	*tmp;
-
-	tmp = stack_a;
-	stack_a = stack_a->next;
-	tmp->next = stack_b;
-	stack_b = tmp;
-	ft_printf("pb\n");
-}
-
-void	ft_push(t_list *stack_a, t_list *stack_b)
+void	ft_push(t_list **stack_a, t_list **stack_b)
 {
 	ft_pa(stack_a, stack_b);
 	ft_pb(stack_a, stack_b);
