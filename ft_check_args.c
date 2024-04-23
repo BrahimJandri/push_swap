@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 14:48:22 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 18:15:39 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void	ft_check_int(char *str)
 	if (tmp > 2147483647 || tmp < -2147483648)
 	{
 		free(str);
-		ft_error_msg("Error max\n");
+		ft_error_msg("Error\n");
 	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 		{
 			free(str);
-			ft_error_msg("Error num\n");
+			ft_error_msg("Error\n");
 		}
 		i++;
 	}
@@ -75,29 +75,26 @@ static char	*ft_join(char **str)
 	return (string);
 }
 
-static void	ft_check_empty(char *str)
+static void	ft_check_empty(int ac, char **av)
 {
 	int	i;
 	int	len;
+	int j;
 
 	i = 0;
-	if (!str)
+	while(++i < ac)
 	{
-		free(str);
-		ft_error_msg("Error\n");
-	}
-	len = ft_strlen(str);
-	while (str[i])
-	{
-		if (str[i] == ' ')
-			i++;
-		else
-			break ;
-	}
-	if (i == len)
-	{
-		free(str);
-		ft_error_msg("Error\n");
+		j = 0;
+		len = ft_strlen(av[i]);
+		while (av[j])
+		{
+			if (av[i][j] == ' ')
+				j++;
+			else
+				break ;
+		}
+		if (j == len)
+			ft_error_msg("Error\n");
 	}
 }
 
@@ -107,7 +104,7 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	char	**str;
 	char	*string;
 
-	(void)ac;
+	i = 1;
 	string = ft_join(av);
 	str = ft_split(string, ' ');
 	if (!str)
@@ -115,14 +112,13 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 		ft_free_str(str);
 		ft_error_msg("Memory allocation failed\n");
 	}
-	free(string);
+	ft_check_empty(ac, av);
 	ft_check_doubl(str);
-	i = 1;
 	while (str[i])
 	{
-		ft_check_empty(str[i]);
 		ft_check_int(str[i]);
 		i++;
 	}
+	free(string);
 	a->str = str;
 }
