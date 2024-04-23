@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 14:38:29 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 12:11:41 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	char	**str;
 	char	*string;
 
+	(void)ac;
 	i = 1;
 	string = ft_join(av);
 	str = ft_split(string, ' ');
@@ -117,8 +118,8 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	}
 	ft_check_doubl(str);
 	free(string);
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (str[i])
 	{
 		ft_check_empty(str[i]);
 		ft_check_int(str[i]);

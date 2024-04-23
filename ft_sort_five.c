@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 18:08:09 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 11:08:48 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 11:40:02 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ t_list	*ft_sort_five(t_list **stack_a, t_list **stack_b)
 			min = ft_find_min(*stack_a);
 			i++;
 		}
+		min_index = ft_find_index(*stack_a, min);
 		if (min_index >= ft_lstsize(*stack_a) / 2)
 			ft_rra(stack_a);
 		else

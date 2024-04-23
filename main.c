@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:26:59 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 11:12:27 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 11:37:18 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	main(int ac, char **av)
 	a.top = ft_creat_stack(ac, a.str);
 	if (!ft_is_sorted(a.top))
 	{
-		if (ft_stack_len(a.top) < 3)
+		if (ft_lstsize(a.top) <= 3)
 			ft_sort_three(&a.top);
-		if (ft_stack_len(a.top) > 3)
+		if (ft_lstsize(a.top) > 3)
 			ft_sort_five(&a.top, &b.top);
 	}
 	print_stack(&a.top);

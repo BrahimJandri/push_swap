@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 11:11:52 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 12:03:32 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_free_str(char **str)
 void	ft_error_msg(char *str)
 {
 	ft_printf("%s", str);
-	exit(0);
+	exit(1);
 }
 
 void	del(int data)
@@ -49,17 +49,3 @@ void	free_stack(t_list **top)
 	}
 }
 
-int	ft_stack_len(t_list *stack)
-{
-	int	count;
-
-	if (!stack)
-		return (0);
-	count = 0;
-	while (stack)
-	{
-		count++;
-		stack = stack->next;
-	}
-	return (count);
-}
