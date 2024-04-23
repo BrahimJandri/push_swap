@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 16:03:13 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 10:12:28 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void		ft_free_str(char **str);
 void		del(int data);
 void		free_stack(t_list **top);
 void		ft_sa(t_list **stack);
-int			ft_find_max(t_list *stack);
-int			ft_find_min(t_list *stack);
+t_list		*ft_find_max(t_list *stack);
+t_list		*ft_find_min(t_list *stack);
 int			ft_stack_len(t_list *stack);
 void		ft_sb(t_list **stack);
 void		ft_pa(t_list **stack_a, t_list **stack_b);
