@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 12:11:41 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 14:48:22 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void	ft_check_int(char *str)
 	if (tmp > 2147483647 || tmp < -2147483648)
 	{
 		free(str);
-		ft_error_msg("Error\n");
+		ft_error_msg("Error max\n");
 	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 		{
 			free(str);
-			ft_error_msg("Error\n");
+			ft_error_msg("Error num\n");
 		}
 		i++;
 	}
@@ -108,7 +108,6 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	char	*string;
 
 	(void)ac;
-	i = 1;
 	string = ft_join(av);
 	str = ft_split(string, ' ');
 	if (!str)
@@ -116,9 +115,9 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 		ft_free_str(str);
 		ft_error_msg("Memory allocation failed\n");
 	}
-	ft_check_doubl(str);
 	free(string);
-	i = 0;
+	ft_check_doubl(str);
+	i = 1;
 	while (str[i])
 	{
 		ft_check_empty(str[i]);
