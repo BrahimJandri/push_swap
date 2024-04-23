@@ -115,7 +115,6 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 		ft_free_str(str);
 		ft_error_msg("Memory allocation failed\n");
 	}
-		
 	ft_check_doubl(str);
 	free(string);
 	i = 1;

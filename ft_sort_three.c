@@ -6,20 +6,20 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:25:19 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 10:11:38 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 10:57:10 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_find_max(t_list *stack)
+int	ft_find_max(t_list *stack)
 {
 	t_list	*max;
 	t_list	*cur;
 
- 	if (!stack)
+	if (!stack)
 	{
-        return NULL;
+		return (-1);
 	}
 	max = stack;
 	cur = stack->next;
@@ -29,17 +29,17 @@ t_list	*ft_find_max(t_list *stack)
 			max = cur;
 		cur = cur->next;
 	}
-	return (max);
+	return (max->content);
 }
 
 t_list	*ft_sort_three(t_list **stack)
 {
 	t_list	*last;
-	t_list	*max;
+	int		max;
 
 	last = ft_lstlast(*stack);
 	max = ft_find_max(*stack);
-	while (last != max)
+	while (last->content != max)
 	{
 		ft_ra(stack);
 		last = ft_lstlast(*stack);

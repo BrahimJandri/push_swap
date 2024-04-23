@@ -15,15 +15,15 @@
 void	ft_pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
-    
+
 	if ((*stack_b) != NULL)
-    {
-        tmp = *stack_b;
-	    *stack_b = (*stack_b)->next;
-	    tmp->next = *stack_a;
-	    *stack_a = tmp;
-	    ft_printf("pa\n");
-    }
+	{
+		tmp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		tmp->next = *stack_a;
+		*stack_a = tmp;
+		ft_printf("pa\n");
+	}
 }
 
 void	ft_pb(t_list **stack_a, t_list **stack_b)
@@ -31,13 +31,13 @@ void	ft_pb(t_list **stack_a, t_list **stack_b)
 	t_list	*tmp;
 
 	if ((*stack_a) != NULL)
-    {
-        tmp = *stack_a;
-        *stack_a = (*stack_a)->next;
-        tmp->next = *stack_b;
-        *stack_b = tmp;
-        ft_printf("pb\n");
-    }
+	{
+		tmp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		tmp->next = *stack_b;
+		*stack_b = tmp;
+		ft_printf("pb\n");
+	}
 }
 
 void	ft_push(t_list **stack_a, t_list **stack_b)
