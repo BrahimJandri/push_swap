@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 18:15:39 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/23 19:12:27 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,10 @@ static void	ft_check_empty(int ac, char **av)
 				break ;
 		}
 		if (j == len)
+		{
+			ft_free_str(av);
 			ft_error_msg("Error\n");
+		}
 	}
 }
 
@@ -107,6 +110,7 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	i = 1;
 	string = ft_join(av);
 	str = ft_split(string, ' ');
+	free(string);
 	if (!str)
 	{
 		ft_free_str(str);
@@ -119,6 +123,5 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 		ft_check_int(str[i]);
 		i++;
 	}
-	free(string);
 	a->str = str;
 }
