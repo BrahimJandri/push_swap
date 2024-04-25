@@ -6,35 +6,35 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 19:12:27 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/25 14:17:36 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_check_int(char *str)
+static void ft_check_int(int ac, char **av)
 {
-	int		i;
-	long	tmp;
+    int i;
+    int j;
+    long tmp;
+    
+    i = 1;
+    while(i < ac)
+    {
+        j = 0;
+        tmp = ft_atol(av[i]);
+        if(tmp > 2147483647 || tmp < -2147483648)
+            ft_error_msg("Error\n");
+        while(av[i][j])
+        {
+            if((av[i][j] >= '0' && av[i][j] <= '9'))
+                j++;
+            else
+                ft_error_msg("Error\n");
 
-	tmp = ft_atol(str);
-	i = 0;
-	if ((str[i] == '-' || str[i] == '+') && (str[i + 1]))
-		i++;
-	if (tmp > 2147483647 || tmp < -2147483648)
-	{
-		free(str);
-		ft_error_msg("Error\n");
-	}
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-		{
-			free(str);
-			ft_error_msg("Error\n");
-		}
-		i++;
-	}
+        }
+        i++;
+    }
 }
 
 static void	ft_check_doubl(char **str)
@@ -103,11 +103,10 @@ static void	ft_check_empty(int ac, char **av)
 
 void	ft_check_args(int ac, char **av, t_stack *a)
 {
-	int		i;
 	char	**str;
 	char	*string;
 
-	i = 1;
+	ft_check_int(ac, av);
 	string = ft_join(av);
 	str = ft_split(string, ' ');
 	free(string);
@@ -118,10 +117,5 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	}
 	ft_check_empty(ac, av);
 	ft_check_doubl(str);
-	while (str[i])
-	{
-		ft_check_int(str[i]);
-		i++;
-	}
 	a->str = str;
 }
