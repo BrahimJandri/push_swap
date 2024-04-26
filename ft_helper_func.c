@@ -12,18 +12,19 @@
 
 #include "push_swap.h"
 
-void ft_free_str(char **str)
+void	ft_free_str(char **str)
 {
-    int i = 0;
+	int	i;
 
-    while (str[i] != NULL)
-    {
-        free(str[i]);
-        str[i] = NULL;
-        i++;
-    }
-    free(str);
-    str = NULL;
+	i = 0;
+	while (str[i] != NULL)
+	{
+		free(str[i]);
+		str[i] = NULL;
+		i++;
+	}
+	free(str);
+	str = NULL;
 }
 
 void	ft_error_msg(char *str)

@@ -12,30 +12,30 @@
 
 #include "push_swap.h"
 
-static void ft_check_int(int ac, char **av)
+static void	ft_check_int(int ac, char **av)
 {
-    int i;
-    int j;
-    long tmp;
-    
-    i = 1;
-    while(i < ac)
-    {
-        j = 0;
-        tmp = ft_atol(av[i]);
-        if(tmp > 2147483647 || tmp < -2147483648)
-            ft_error_msg("Error\n");
-        while(av[i][j])
-        {
+	int		i;
+	int		j;
+	long	tmp;
+
+	i = 1;
+	while (i < ac)
+	{
+		j = 0;
+		tmp = ft_atol(av[i]);
+		if (tmp > 2147483647 || tmp < -2147483648)
+			ft_error_msg("Error\n");
+		while (av[i][j])
+		{
 			if ((av[i][j] == '-' || av[i][j] == '+') && (av[i][j + 1]))
 				j++;
-            if(((av[i][j] >= '0' && av[i][j] <= '9') || av[i][j] == ' '))
-                j++;
-            else
-                ft_error_msg("Error\n");
-        }
-        i++;
-    }
+			if (((av[i][j] >= '0' && av[i][j] <= '9') || av[i][j] == ' '))
+				j++;
+			else
+				ft_error_msg("Error\n");
+		}
+		i++;
+	}
 }
 
 static void	ft_check_doubl(char **str)
@@ -80,10 +80,10 @@ static void	ft_check_empty(int ac, char **av)
 {
 	int	i;
 	int	len;
-	int j;
+	int	j;
 
 	i = 0;
-	while(++i < ac)
+	while (++i < ac)
 	{
 		j = 0;
 		len = ft_strlen(av[i]);
