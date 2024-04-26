@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/25 16:21:35 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/26 11:05:31 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static void	ft_check_empty(int ac, char **av)
 		if (j == len)
 		{
 			ft_free_str(av);
-			ft_error_msg("Error empty\n");
+			ft_error_msg("Error\n");
 		}
 	}
 }
@@ -108,6 +108,7 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 	char	*string;
 
 	ft_check_int(ac, av);
+	ft_check_empty(ac, av);
 	string = ft_join(av);
 	str = ft_split(string, ' ');
 	free(string);
@@ -116,7 +117,6 @@ void	ft_check_args(int ac, char **av, t_stack *a)
 		ft_free_str(str);
 		ft_error_msg("Memory allocation failed\n");
 	}
-	ft_check_empty(ac, av);
 	ft_check_doubl(str);
 	a->str = str;
 }

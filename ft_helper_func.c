@@ -6,23 +6,24 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 19:13:02 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/26 11:02:28 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_str(char **str)
+void ft_free_str(char **str)
 {
-	int	i;
+    int i = 0;
 
-	i = 0;
-	while (str[i] != NULL)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+    while (str[i] != NULL)
+    {
+        free(str[i]);
+        str[i] = NULL;
+        i++;
+    }
+    free(str);
+    str = NULL;
 }
 
 void	ft_error_msg(char *str)
