@@ -6,13 +6,13 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:15:44 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/22 14:58:47 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/28 11:45:42 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_list **stack)
+void	ft_swap(t_list **stack)
 {
 	int	tmp;
 
@@ -21,21 +21,19 @@ void	ft_sa(t_list **stack)
 		tmp = (*stack)->content;
 		(*stack)->content = (*stack)->next->content;
 		(*stack)->next->content = tmp;
-		ft_printf("sa\n");
 	}
+}
+
+void	ft_sa(t_list **stack)
+{
+	ft_swap(stack);
+	ft_printf("sa\n");
 }
 
 void	ft_sb(t_list **stack)
 {
-	int	tmp;
-
-	if ((*stack) != NULL && (*stack)->next != NULL)
-	{
-		tmp = (*stack)->content;
-		(*stack)->content = (*stack)->next->content;
-		(*stack)->next->content = tmp;
-		ft_printf("sb\n");
-	}
+	ft_swap(stack);
+	ft_printf("sb\n");
 }
 
 void	ft_ss(t_list **stack_a, t_list **stack_b)

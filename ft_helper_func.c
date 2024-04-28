@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/26 11:02:28 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/28 11:46:22 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,17 @@ void	free_stack(t_list **top)
 		*top = head;
 	}
 }
+// int	ft_stack_len(t_stack **stack)
+// {
+// 	int	count;
+
+// 	if (!*stack) 
+// 		return (0);
+// 	count = 0;
+// 	while (stack)
+// 	{
+// 		stack = (*stack)->next;
+// 		count++;
+// 	}
+// 	return (count);
+// }

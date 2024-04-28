@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:26:59 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/26 11:50:02 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/28 11:53:31 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ int	main(int ac, char **av)
 	{
 		if (ft_lstsize(a.top) <= 3)
 			ft_sort_three(&a.top);
-		if (ft_lstsize(a.top) > 3 || ft_lstsize(a.top) == 5)
+		if (ft_lstsize(a.top) == 4 || ft_lstsize(a.top) == 5)
 			ft_sort_five(&a.top, &b.top);
+		// else
+		// 	ft_sort_stacks(&a.top, &b.top);
 	}
-	print_stack(&a.top);
+	// print_stack(&a.top);
 	free_stack(&a.top);
 	return (0);
 }

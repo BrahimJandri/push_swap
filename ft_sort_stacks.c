@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_sort_stacks.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 15:55:42 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/28 11:52:41 by bjandri          ###   ########.fr       */
+/*   Created: 2024/04/28 10:24:39 by bjandri           #+#    #+#             */
+/*   Updated: 2024/04/28 11:39:43 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_list **stack_a, t_list **stack_b)
+t_list	*ft_sort_stacks(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
+    int len_stack_a;
 
-	if ((*stack_b) != NULL)
-	{
-		tmp = *stack_b;
-		*stack_b = (*stack_b)->next;
-		tmp->next = *stack_a;
-		*stack_a = tmp;
-	}
-}
-
-void	ft_pa(t_list **stack_a, t_list **stack_b)
-{
-	ft_push(stack_a, stack_b);	
-	ft_printf("pa\n");
-}
-
-void	ft_pb(t_list **stack_a, t_list **stack_b)
-{
-	ft_push(stack_a, stack_b);	
-	ft_printf("pb\n");
+    (void)stack_b;
+    len_stack_a = ft_stack_len(&stack_a);
+    ft_printf("len == %d", len_stack_a);
+    return(*stack_a);
 }
