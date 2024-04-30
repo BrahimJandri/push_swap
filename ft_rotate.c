@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:57:07 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/28 11:47:55 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/30 11:56:43 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,24 @@ void	ft_rotate(t_list **stack)
 	}
 }
 
-void	ft_ra(t_list **stack)
+void	ft_ra(t_list **stack, int c)
 {
-	ft_rotate(stack);	
-	ft_printf("ra\n");
+	ft_rotate(stack);
+	if (!c)
+		ft_printf("ra\n");
 }
 
-void	ft_rb(t_list **stack)
+void	ft_rb(t_list **stack, int c)
 {
-	ft_rotate(stack);	
-	ft_printf("rb\n");
+	ft_rotate(stack);
+	if (!c)
+		ft_printf("rb\n");
 }
 
-void	ft_rr(t_list **stack_a, t_list **stack_b)
+void	ft_rr(t_list **stack_a, t_list **stack_b, int c)
 {
-	ft_ra(stack_a);
-	ft_rb(stack_b);
-	ft_printf("rr\n");
+	ft_ra(stack_a, 1);
+	ft_rb(stack_b, 1);
+	if (c)
+		ft_printf("rr\n");
 }

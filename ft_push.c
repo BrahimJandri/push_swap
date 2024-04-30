@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:55:42 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/30 11:20:31 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/30 15:10:40 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 void	ft_push(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
+	t_list	*first;
+	t_list	*second;
 
-	if ((*stack_b) != NULL || (*stack_a) != NULL)
+	if ((*stack_a) != NULL && (*stack_a)->next != NULL)
 	{
-		tmp = *stack_b;
-		*stack_b = (*stack_b)->next;
-		tmp->next = *stack_a;
-		*stack_a = tmp;
+		first = *stack_a;
+		second = (*stack_a)->next;
+		(*stack_a)->next = NULL;
+		*stack_a = second;
+		ft_lstadd_back(stack_b, first);
 	}
 }
 
 void	ft_pa(t_list **stack_a, t_list **stack_b)
 {
-	ft_push(stack_a, stack_b);	
+	ft_push(stack_a, stack_b);
 	ft_printf("pa\n");
 }
 
 void	ft_pb(t_list **stack_a, t_list **stack_b)
 {
-	ft_push(stack_a, stack_b);	
+	ft_push(stack_a, stack_b);
 	ft_printf("pb\n");
 }
