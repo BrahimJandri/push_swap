@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:55:42 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/28 11:52:41 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/30 11:20:31 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_push(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*tmp;
 
-	if ((*stack_b) != NULL)
+	if ((*stack_b) != NULL || (*stack_a) != NULL)
 	{
 		tmp = *stack_b;
 		*stack_b = (*stack_b)->next;

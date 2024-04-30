@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:37:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/28 11:48:48 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/30 11:19:38 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	ft_rev_rot(t_list **stack)
 	t_list	*tmp;
 	t_list	*last;
 
-	tmp = *stack;
-	while (tmp->next)
+	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
-		last = tmp;
-		tmp = tmp->next;
+		tmp = *stack;
+		while (tmp->next)
+		{
+			last = tmp;
+			tmp = tmp->next;
+		}
 	}
 	last->next = NULL;
 	ft_lstadd_front(&*stack, tmp);

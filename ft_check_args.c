@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/26 11:05:31 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/30 11:49:40 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,7 @@ static void	ft_check_empty(int ac, char **av)
 				break ;
 		}
 		if (j == len)
-		{
-			ft_free_str(av);
 			ft_error_msg("Error\n");
-		}
 	}
 }
 

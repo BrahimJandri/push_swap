@@ -6,11 +6,52 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:25:19 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/23 10:57:10 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/30 11:29:09 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_find_min(t_list *stack)
+{
+	t_list	*min;
+	t_list	*cur;
+
+	if (!stack)
+	{
+		return (-1);
+	}
+	min = stack;
+	cur = stack->next;
+	while (cur)
+	{
+		if (cur->content < min->content)
+			min = cur;
+		cur = cur->next;
+	}
+	return (min->content);
+}
+
+int	ft_find_index(t_list *stack, int num)
+{
+	int		i;
+	t_list	*cur;
+
+	i = 0;
+	if (!stack)
+	{
+		return (-1);
+	}
+	cur = stack->next;
+	while (cur)
+	{
+		if (cur->content == num)
+			return (i);
+		cur = cur->next;
+		i++;
+	}
+	return (-1);
+}
 
 int	ft_find_max(t_list *stack)
 {
