@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:55:42 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/01 09:11:34 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/01 16:50:29 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	ft_pa(t_stack **stack_a, t_stack **stack_b)
 	ft_printf("pa\n");
 }
 
-void	ft_pb(t_stack **stack_a, t_stack **stack_b)
+void	ft_pb(t_stack **stack_b, t_stack **stack_a)
 {
-	ft_push(stack_a, stack_b);
+	ft_push(stack_b, stack_a);
 	ft_printf("pb\n");
 }
