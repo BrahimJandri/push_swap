@@ -6,12 +6,11 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:47:02 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 12:12:42 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/01 09:02:21 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	ft_lstclear(t_list **lst, void (*del)(int))
 {

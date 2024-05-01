@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/30 11:49:40 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/04/30 18:21:19 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_check_int(int ac, char **av)
 	{
 		j = 0;
 		tmp = ft_atol(av[i]);
-		if (tmp > 2147483647 || tmp < -2147483648)
+		if (tmp > INT_MAX || tmp < INT_MIN)
 			ft_error_msg("Error\n");
 		while (av[i][j])
 		{

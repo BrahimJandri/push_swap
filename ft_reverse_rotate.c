@@ -6,16 +6,16 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:37:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/30 12:00:21 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/01 09:12:07 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rev_rot(t_list **stack)
+void	ft_rev_rot(t_stack **stack)
 {
-	t_list	*tmp;
-	t_list	*last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
@@ -27,24 +27,24 @@ void	ft_rev_rot(t_list **stack)
 		}
 	}
 	last->next = NULL;
-	ft_lstadd_front(&*stack, tmp);
+	ft_add_front(&*stack, tmp);
 }
 
-void	ft_rra(t_list **stack, int c)
+void	ft_rra(t_stack **stack, int c)
 {
 	ft_rev_rot(stack);
 	if (!c)
 		ft_printf("rra\n");
 }
 
-void	ft_rrb(t_list **stack, int c)
+void	ft_rrb(t_stack **stack, int c)
 {
 	ft_rev_rot(stack);
 	if (!c)
 		ft_printf("rrb\n");
 }
 
-void	ft_rrr(t_list **stack_a, t_list **stack_b, int c)
+void	ft_rrr(t_stack **stack_a, t_stack **stack_b, int c)
 {
 	ft_rra(stack_a, 1);
 	ft_rrb(stack_b, 1);

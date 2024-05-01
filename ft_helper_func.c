@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/30 11:04:40 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/01 09:10:47 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	del(int data)
 	(void)data;
 }
 
-void	free_stack(t_list **top)
+void	free_stack(t_stack **top)
 {
-	t_list	*head;
+	t_stack	*head;
 
 	head = *top;
 	while (head != NULL)
@@ -49,4 +49,19 @@ void	free_stack(t_list **top)
 		free(*top);
 		*top = head;
 	}
+}
+
+int	ft_stack_len(t_stack *lst)
+{
+	int	size;
+
+	size = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }

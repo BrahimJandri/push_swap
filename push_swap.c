@@ -6,15 +6,15 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:26:59 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/30 15:21:13 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/01 09:59:40 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_list **head)
+void	print_stack(t_stack **head)
 {
-	t_list	*ptr;
+	t_stack	*ptr;
 
 	ptr = *head;
 	while (ptr != NULL)
@@ -26,25 +26,25 @@ void	print_stack(t_list **head)
 
 int	main(int ac, char **av)
 {
-	t_stack	a;
-	t_stack	b;
+	t_stack	stack_a;
+	// t_stack	stack_b;
 
-	a.top = NULL;
-	b.top = NULL;
+	stack_a.head = NULL;
+	// stack_b.head = NULL;
 	if (ac < 2)
 		return (0);
-	ft_check_args(ac, av, &a);
-	a.top = ft_creat_stack(ac, a.str);
-	if (!ft_is_sorted(a.top))
+	ft_check_args(ac, av, &stack_a);
+	stack_a.head = ft_creat_stack(ac, stack_a.str);
+	if (!ft_is_sorted(stack_a.head))
 	{
-		if (ft_lstsize(a.top) == 2)
-			ft_sa(&a.top, 0);
-		if (ft_lstsize(a.top) == 3)
-			ft_sort_three(&a.top);
-		else
-			ft_sort_stacks(&a.top, &b.top);
+		if (ft_stack_len(stack_a.head) == 2)
+			ft_sa(&stack_a.head, 0);
+		if (ft_stack_len(stack_a.head) == 3)
+			ft_sort_three(&stack_a.head);
+		// else
+		// 	ft_sort_stacks(&stack_a.head, &stack_b.head);
 	}
-	print_stack(&a.top);
-	free_stack(&a.top);
+	print_stack(&stack_a.head);
+	free_stack(&stack_a.head);
 	return (0);
 }

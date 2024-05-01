@@ -6,20 +6,20 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:25:19 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/30 12:00:50 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/01 09:59:13 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_find_min(t_list *stack)
+t_stack	*ft_find_min(t_stack *stack)
 {
-	t_list	*min;
-	t_list	*cur;
+	t_stack	*min;
+	t_stack	*cur;
 
 	if (!stack)
 	{
-		return (-1);
+		return NULL;
 	}
 	min = stack;
 	cur = stack->next;
@@ -29,38 +29,17 @@ int	ft_find_min(t_list *stack)
 			min = cur;
 		cur = cur->next;
 	}
-	return (min->content);
+	return (min);
 }
 
-int	ft_find_index(t_list *stack, int num)
+t_stack	*ft_find_max(t_stack *stack)
 {
-	int		i;
-	t_list	*cur;
-
-	i = 0;
-	if (!stack)
-	{
-		return (-1);
-	}
-	cur = stack->next;
-	while (cur)
-	{
-		if (cur->content == num)
-			return (i);
-		cur = cur->next;
-		i++;
-	}
-	return (-1);
-}
-
-int	ft_find_max(t_list *stack)
-{
-	t_list	*max;
-	t_list	*cur;
+	t_stack	*max;
+	t_stack	*cur;
 
 	if (!stack)
 	{
-		return (-1);
+		return (NULL);
 	}
 	max = stack;
 	cur = stack->next;
@@ -70,20 +49,19 @@ int	ft_find_max(t_list *stack)
 			max = cur;
 		cur = cur->next;
 	}
-	return (max->content);
+	return (max);
 }
 
-t_list	*ft_sort_three(t_list **stack)
+t_stack	*ft_sort_three(t_stack **stack)
 {
-	t_list	*last;
-	int		max;
-
-	last = ft_lstlast(*stack);
+	t_stack	*last;
+	t_stack	*max;
+	last = ft_last_stack(*stack);
 	max = ft_find_max(*stack);
-	while (last->content != max)
+	while (last->content != max->content)
 	{
 		ft_ra(stack, 0);
-		last = ft_lstlast(*stack);
+		last = ft_last_stack(*stack);
 	}
 	if ((*stack)->content > (*stack)->next->content)
 		ft_sa(stack, 0);
