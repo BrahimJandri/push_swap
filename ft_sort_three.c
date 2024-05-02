@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:25:19 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/01 09:59:13 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/02 15:55:48 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_stack	*ft_find_max(t_stack *stack)
 	return (max);
 }
 
-t_stack	*ft_sort_three(t_stack **stack)
+void	ft_sort_three(t_stack **stack)
 {
 	t_stack	*last;
 	t_stack	*max;
@@ -65,5 +65,4 @@ t_stack	*ft_sort_three(t_stack **stack)
 	}
 	if ((*stack)->content > (*stack)->next->content)
 		ft_sa(stack, 0);
-	return (*stack);
 }

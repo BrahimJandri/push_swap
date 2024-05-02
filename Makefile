@@ -6,8 +6,8 @@ AR = ar rcs
 LIBFT = ./libft/libft.a
 
 SRC = push_swap.c ft_check_args.c ft_helper_func.c ft_create_stack.c ft_sort_three.c \
-	ft_push.c ft_swap.c ft_rotate.c ft_is_sorted.c ft_reverse_rotate.c \
-	ft_stack_utils.c
+	ft_push.c ft_swap.c ft_rotate.c ft_is_sorted.c ft_reverse_rotate.c ft_sort_stacks.c \
+	ft_stack_utils.c ft_init_stack_a.c  
 	
 OBJ = $(SRC:.c=.o)
 

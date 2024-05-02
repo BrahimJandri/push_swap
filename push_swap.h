@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/01 16:49:52 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/02 17:08:19 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ typedef struct s_stack
     int push_cost;
     char **str;
     bool cheapest;
-    bool median;
+    bool foq_median;
 } t_stack;
 
 
 int			ft_is_sorted(t_stack *stack);
-int			ft_stack_len(t_stack *lst);
+int			ft_stack_len(t_stack *stack);
 void		ft_check_args(int ac, char **av, t_stack *a);
 void		ft_error_msg(char *str);
 void		ft_free_str(char **str);
@@ -58,11 +58,13 @@ void		ft_swap(t_stack **stack);
 void		ft_rev_rot(t_stack **stack);
 void		ft_push(t_stack **stack_a, t_stack **stack_b);
 void		ft_rotate(t_stack **stack);
+void		ft_sort_three(t_stack **stack);
+void        ft_sort_stacks(t_stack **stack_a, t_stack **stack_b);
+void        ft_init_satck_a(t_stack *stack_a, t_stack *stack_b);
 t_stack		*ft_find_min(t_stack *stack);
 t_stack	    *ft_last_stack(t_stack *stack);
 t_stack		*ft_find_max(t_stack *stack);
 t_stack		*ft_new_stack(int content);
-t_stack		*ft_sort_three(t_stack **stack);
 t_stack		*ft_creat_stack(int ac, char **av);
 
 #endif
