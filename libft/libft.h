@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:22:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/01 16:28:43 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/03 17:50:34 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct s_list
-{
-	int				content;
-	struct s_list	*next;
-}					t_list;
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);

@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:51:54 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/02 17:00:29 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/04 12:03:42 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    ft_sort_stacks(t_stack **stack_a, t_stack **stack_b)
         ft_pb(stack_a, stack_b);
     while (stack_len-- > 3 && !ft_is_sorted(*stack_a))
     {
-        ft_init_stack_a();
+        
     }
     
 }
