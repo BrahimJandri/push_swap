@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:26:59 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/04 16:22:51 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/05 11:17:00 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int ac, char **av)
 			ft_sort_stacks(&stack_a.head, &stack_b.head);
 	}
 	// print_stack(&stack_a.head);
+    print_array(stack_a.array);
 	free_stack(&stack_a.head);
 	return (0);
 }

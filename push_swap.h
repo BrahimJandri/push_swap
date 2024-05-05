@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/04 12:44:51 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/05 10:56:57 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,11 @@ typedef struct s_stack
 {
     struct s_stack *head;
     struct s_stack *prev;
-    struct s_stack *target;
     struct s_stack *next;
     int content;
     int index;
-    int push_cost;
+    int *array;
     char **str;
-    bool cheapest;
-    bool foq_median;
 } t_stack;
 
 
@@ -61,6 +58,7 @@ void		ft_rotate(t_stack **stack);
 void		ft_sort_three(t_stack **stack);
 void        ft_sort_stacks(t_stack **stack_a, t_stack **stack_b);
 void        ft_sort_five(t_stack **stack_a, t_stack **stack_b);
+void print_array(int *array);
 
 t_stack		*ft_find_min(t_stack *stack);
 t_stack	    *ft_last_stack(t_stack *stack);
