@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/30 18:21:19 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/05 16:52:09 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	ft_check_int(int ac, char **av)
 			ft_error_msg("Error\n");
 		while (av[i][j])
 		{
+			if ((av[i][j] == '-' || av[i][j] == '+') && (av[i][j + 1] == 32))
+				ft_error_msg("Error\n");
 			if ((av[i][j] == '-' || av[i][j] == '+') && (av[i][j + 1]))
 				j++;
 			if (((av[i][j] >= '0' && av[i][j] <= '9') || av[i][j] == ' '))
