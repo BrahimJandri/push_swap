@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:26:59 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/05 16:21:42 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/05 22:30:48 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	main(int ac, char **av)
 		return (0);
 	ft_check_args(ac, av, &stack_a);
 	stack_a.head = ft_creat_stack(ac, stack_a.str);
+	stack_a.size = ft_stack_len(stack_a.head);
+	stack_a.head->size = stack_a.size;
 	if (!ft_is_sorted(stack_a.head))
 	{
 		if (ft_stack_len(stack_a.head) == 2)
@@ -43,10 +45,10 @@ int	main(int ac, char **av)
 			ft_sort_three(&stack_a.head);
 		if (ft_stack_len(stack_a.head) == 5)
 			ft_sort_five(&stack_a.head, &stack_b.head);
-		// else if(ft_stack_len(stack_a.head) > 5)
-		// 	ft_sort_stacks(&stack_a.head, &stack_b.head);
+		else if(ft_stack_len(stack_a.head) > 5)
+			ft_sort_stacks(&stack_a.head, &stack_b.head);
 	}
-	// print_stack(&stack_a.head);
+	print_stack(&stack_b.head);
 	free_stack(&stack_a.head);
 	return (0);
 }
