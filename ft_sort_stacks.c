@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:51:54 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/05 23:29:26 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/06 19:43:54 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static bool still_in_range(t_stack **stack, int start, int end)
 
 static void ft_first_step(t_stack **stack_a, t_stack **stack_b)
 {   
-    int offset = (*stack_a)->size / 2;
+    int offset = (*stack_a)->size / 4;
     int mid = (*stack_a)->size / 2 - 1;
     int start = mid - offset;
     int end = mid + offset;
