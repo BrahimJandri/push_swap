@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 09:37:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/01 09:12:07 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/07 12:20:33 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_rev_rot(t_stack **stack)
 		}
 	}
 	last->next = NULL;
-	ft_add_front(&*stack, tmp);
+	ft_add_front(stack, tmp);
 }
 
 void	ft_rra(t_stack **stack, int c)

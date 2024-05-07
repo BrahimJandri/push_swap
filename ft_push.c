@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:55:42 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/04 16:04:02 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/07 11:52:26 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_push(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*first;
 	t_stack	*second;
 
-	if ((*stack_a) != NULL && (*stack_a)->next != NULL)
+	if ((*stack_a) != NULL)
 	{
 		first = *stack_a;
 		second = (*stack_a)->next;
@@ -35,6 +35,6 @@ void	ft_pa(t_stack **stack_a, t_stack **stack_b)
 
 void	ft_pb(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_push(stack_b, stack_a);
+	ft_push(stack_a, stack_b);
 	ft_printf("pb\n");
 }

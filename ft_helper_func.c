@@ -54,7 +54,7 @@ void	free_stack(t_stack **top)
 int	ft_stack_len(t_stack *stack)
 {
 	int	size;
-	
+
 	size = 0;
 	if (stack == NULL)
 		return (-1);
@@ -69,7 +69,7 @@ int	ft_stack_len(t_stack *stack)
 // void	ft_array_len(int *stack)
 // {
 // 	int	size;
-	
+
 // 	size = 0;
 // 	if (stack == NULL)
 // 		return (0);

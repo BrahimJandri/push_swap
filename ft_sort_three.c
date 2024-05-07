@@ -19,7 +19,7 @@ t_stack	*ft_find_min(t_stack *stack)
 
 	if (!stack)
 	{
-		return NULL;
+		return (NULL);
 	}
 	min = stack;
 	cur = stack->next;
@@ -56,6 +56,7 @@ void	ft_sort_three(t_stack **stack)
 {
 	t_stack	*last;
 	t_stack	*max;
+
 	last = ft_last_stack(*stack);
 	max = ft_find_max(*stack);
 	while (last->content != max->content)
