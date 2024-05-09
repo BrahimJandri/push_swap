@@ -6,71 +6,77 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 11:29:37 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/08 15:35:36 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/08 22:44:28 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_update_range(int size, long *start, long *end, int offset)
-{
-	*start = *start - offset;
-	*end = *end + offset;
-	if (*start < 0)
-		*start = 0;
-	if (*end > (size - 1))
-		*end = (size - 1);
-}
 
-static bool	still_in_range(t_stack *stack, long start, long end,
-		const int *array)
+static int ft_index(int nb, int *arr, int len)
 {
-	int	check;
-
-	check = 0;
-	while (stack)
+	int i = 0;
+	while (i < len)
 	{
-		if (stack->content >= array[start] && stack->content <= array[end])
-			check++;
-		stack = stack->next;
+		if(arr[i] == nb)
+			return i;
+		i++;
 	}
-	return (check);
+	return i;	
 }
 
-
-void	ft_first_step(t_stack **stack_a, t_stack **stack_b,
-		const int *array, t_array *array_s)
+static void initindex(t_stack **stack, int *arr)
 {
-	array_s->size_array = (*stack_a)->size;
-	if(array_s->size_array <= 10)
-		array_s->offset = array_s->size_array / 5;
-	else if(array_s->size_array <= 100)
-		array_s->offset = array_s->size_array / 8;
-	else if(array_s->size_array <= 500)
-		array_s->offset = array_s->size_array / 50;
-    array_s->median = (*stack_a)->size / 2;	
-	array_s->mid = (array_s->size_array / 2) - 1;
-	array_s->start = array_s->mid - array_s->offset;
-	array_s->end = array_s->mid + array_s->offset;
-	while (*stack_a != NULL)
+	int len = ft_stack_len(*stack);
+	t_stack *stack_a;
+	int i = 0;
+	stack_a = *stack;
+	while (i < len)
 	{
-		if ((*stack_a)->content >= array[array_s->start]
-			&& (*stack_a)->content <= array[array_s->end])
+		stack_a->index = ft_index(stack_a->content, arr, len);
+		stack_a = stack_a->next;
+		i++;
+	}
+}
+static int ma3rt(t_stack *stack_a, int len , int p)
+{
+	int i = 0;
+	while (stack_a)
+	{
+		if ((stack_a)->index <= len + p)
+		{
+			return i;
+		}
+		stack_a = stack_a->next;
+		i++;
+	}
+	return i;
+}
+void	ft_first_step(t_stack **stack_a, t_stack **stack_b,
+ 		int *array)
+{
+	initindex(stack_a , array);
+	int i = 0;
+	while (*stack_a)
+	{
+		if ((*stack_a)->index <= i)
 		{
 			ft_pb(stack_a, stack_b);
-			if ((*stack_b) && (*stack_b)->next
-				&& ((*stack_b)->content < array[array_s->mid]))
-				    ft_rb(stack_b, 0);
+			ft_rb(stack_b, 0);
+			i++;
 		}
-		if (still_in_range(*stack_a, array_s->start, array_s->end, array))
-        {
-            (*stack_a)->index = current_index(*stack_a, *stack_a);
-            if((*stack_a)->index <= array_s->median)
-			    ft_ra(stack_a, 0);
-            else if((*stack_a)->index >= array_s->median)
-                ft_rra(stack_a, 0);
-        }
-        else
-		    ft_update_range(array_s->size_array, &array_s->start, &array_s->end, array_s->offset);
+		else if ((*stack_a)->index <= i + 15)
+		{
+			ft_pb(stack_a, stack_b);
+			i++;
+		}
+		else if (ma3rt(*stack_a,i , 15) <= ft_stack_len(*stack_a)/ 2)
+		{
+			ft_ra(stack_a,0);
+		}
+		else
+		{
+			ft_rra(stack_a,0);
+		}		
 	}
 }

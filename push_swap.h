@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/08 13:14:17 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/08 22:23:30 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_array
 int					ft_is_sorted(t_stack *stack);
 int					*ft_fill_array(t_stack *stack);
 void				ft_sort_arry(int *array, int size);
-void				ft_first_step(t_stack **stack_a, t_stack **stack_b, const int *array, t_array *array_s);
+void				ft_first_step(t_stack **stack_a, t_stack **stack_b, int *array);
 void	            print_stack(t_stack **head);
 int					ft_stack_len(t_stack *stack);
 int	                current_index(t_stack *stack, t_stack *num);
