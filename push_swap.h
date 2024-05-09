@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/08 22:23:30 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/09 12:14:16 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,14 @@ typedef struct s_stack
 	char			**str;
 }					t_stack;
 
-
-typedef struct s_array
-{
-	int				size_array;
-	long			offset;
-	long			mid;
-	long			start;
-	int				median;
-	long			end;
-}					t_array;
-
 int					ft_is_sorted(t_stack *stack);
 int					*ft_fill_array(t_stack *stack);
 void				ft_sort_arry(int *array, int size);
-void				ft_first_step(t_stack **stack_a, t_stack **stack_b, int *array);
-void	            print_stack(t_stack **head);
+void				ft_first_step(t_stack **stack_a, t_stack **stack_b,
+						int *array);
+void				print_stack(t_stack **head);
 int					ft_stack_len(t_stack *stack);
-int	                current_index(t_stack *stack, t_stack *num);
+int					current_index(t_stack *stack, t_stack *num);
 void				ft_check_args(int ac, char **av, t_stack *a);
 void				ft_error_msg(char *str);
 void				ft_free_str(char **str);
@@ -70,10 +60,9 @@ void				ft_rev_rot(t_stack **stack);
 void				ft_push(t_stack **stack_a, t_stack **stack_b);
 void				ft_rotate(t_stack **stack);
 void				ft_sort_three(t_stack **stack);
-void 				ft_sort_four(t_stack **stack_a, t_stack **stack_b);
+void				ft_sort_four(t_stack **stack_a, t_stack **stack_b);
 void				ft_sort_stacks(t_stack **stack_a, t_stack **stack_b);
 void				ft_sort_five(t_stack **stack_a, t_stack **stack_b);
-
 t_stack				*ft_find_min(t_stack *stack);
 t_stack				*ft_last_stack(t_stack *stack);
 t_stack				*ft_find_max(t_stack *stack);

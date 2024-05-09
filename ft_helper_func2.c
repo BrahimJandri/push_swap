@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 11:25:38 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/08 11:27:12 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/09 11:42:44 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,20 @@ int	*ft_fill_array(t_stack *stack)
 		tmp = tmp->next;
 	}
 	return (array);
+}
+
+int	current_index(t_stack *stack, t_stack *num)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if (stack == num)
+			return (i);
+		else
+			stack = stack->next;
+		i++;
+	}
+	return (i);
 }

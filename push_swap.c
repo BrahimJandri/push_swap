@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:26:59 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/09 10:46:26 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/09 12:04:12 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	main(int ac, char **av)
 	{
 		if (ft_stack_len(stack_a.head) <= 3)
 			ft_sort_three(&stack_a.head);
-		if (ft_stack_len(stack_a.head) == 4)
+		else if (ft_stack_len(stack_a.head) == 4)
 			ft_sort_four(&stack_a.head, &stack_b.head);
-		if (ft_stack_len(stack_a.head) == 5)
+		else if (ft_stack_len(stack_a.head) == 5)
 			ft_sort_five(&stack_a.head, &stack_b.head);
-		else if (ft_stack_len(stack_a.head) > 5)
+		else if (ft_stack_len(stack_a.head) > 3)
 			ft_sort_stacks(&stack_a.head, &stack_b.head);
 	}
 	print_stack(&stack_a.head);

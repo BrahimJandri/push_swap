@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/05 21:58:42 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/09 11:46:58 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,3 @@ int	ft_stack_len(t_stack *stack)
 	}
 	return (size);
 }
-
-// void	ft_array_len(int *stack)
-// {
-// 	int	size;
-
-// 	size = 0;
-// 	if (stack == NULL)
-// 		return (0);
-// 	while (stack[size])
-// 	{
-// 		size++;
-// 	}
-// 	return (size);
-// }
