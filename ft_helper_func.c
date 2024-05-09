@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:15:33 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/09 11:46:58 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/09 14:35:31 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_free_str(char **str)
 
 void	ft_error_msg(char *str)
 {
-	ft_printf("%s", str);
+	write(2, str, 6);
 	exit(1);
 }
 

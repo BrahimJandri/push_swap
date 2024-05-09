@@ -15,7 +15,7 @@
 void	ft_sort_five(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*min;
-	int index;
+	int		index;
 	int		stack_len;
 
 	stack_len = ft_stack_len(*stack_a);

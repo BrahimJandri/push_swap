@@ -60,14 +60,14 @@ static int	ft_stil_in_index(t_stack *stack_a, int len, int p)
 	return (i);
 }
 
-static int ft_check_len(int size)
+static int	ft_check_len(int size)
 {
-	if(size <= 10)
+	if (size <= 10)
 		return (5);
-	else if(size <= 100)
-		return(15);
+	else if (size <= 100)
+		return (15);
 	else
-		return(30);
+		return (30);
 }
 
 void	ft_first_step(t_stack **stack_a, t_stack **stack_b, int *array)
@@ -89,7 +89,7 @@ void	ft_first_step(t_stack **stack_a, t_stack **stack_b, int *array)
 		else if ((*stack_a)->index <= i + p)
 		{
 			ft_pb(stack_a, stack_b);
-			i++;	
+			i++;
 		}
 		else if (ft_stil_in_index(*stack_a, i, p) <= ft_stack_len(*stack_a) / 2)
 			ft_ra(stack_a, 0);
