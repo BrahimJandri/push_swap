@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 09:34:41 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/11 09:43:15 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/11 14:41:25 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,14 @@ void	ft_rotate_bonus(t_stack **stack)
 	t_stack	*second;
 	t_stack	*last;
 
-	if ((*stack) != NULL && (*stack)->next != NULL)
-	{
-		first = *stack;
-		last = ft_last_stack_b(*stack);
-		second = (*stack)->next;
-		last->next = first;
-		first->next = NULL;
-		*stack = second;
-	}
+	if ((*stack) == NULL || (*stack)->next == NULL)
+		return ;
+	first = *stack;
+	last = ft_last_stack_b(*stack);
+	second = (*stack)->next;
+	last->next = first;
+	first->next = NULL;
+	*stack = second;
 }
 
 void	ft_rev_rot_bonus(t_stack **stack)
@@ -49,14 +48,13 @@ void	ft_rev_rot_bonus(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if ((*stack) != NULL && (*stack)->next != NULL)
+	if ((*stack) == NULL || (*stack)->next == NULL)
+		return ;
+	tmp = *stack;
+	while (tmp->next)
 	{
-		tmp = *stack;
-		while (tmp->next)
-		{
-			last = tmp;
-			tmp = tmp->next;
-		}
+		last = tmp;
+		tmp = tmp->next;
 	}
 	last->next = NULL;
 	ft_add_front_b(stack, tmp);
@@ -65,10 +63,9 @@ void	ft_swap_bonus(t_stack **stack)
 {
 	int	tmp;
 
-	if ((*stack) != NULL && (*stack)->next != NULL)
-	{
-		tmp = (*stack)->content;
-		(*stack)->content = (*stack)->next->content;
-		(*stack)->next->content = tmp;
-	}
+	 if ((*stack) == NULL || (*stack)->next == NULL)
+		return ;
+	tmp = (*stack)->content;
+	(*stack)->content = (*stack)->next->content;
+	(*stack)->next->content = tmp;
 }

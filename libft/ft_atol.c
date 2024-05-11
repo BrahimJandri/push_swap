@@ -6,12 +6,26 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:47:04 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/09 18:34:15 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/11 16:10:11 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
+
+static size_t	ft_strsize(const char *str)
+{
+	size_t	i;
+	size_t res;
+	
+	i = 0;
+	res = 0;
+	while (str[i] == '0' || str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i++])
+		res++;
+	return (res);
+}
 
 long	ft_atol(const char *str)
 {
@@ -19,7 +33,7 @@ long	ft_atol(const char *str)
 	long	resu;
 	char	*s;
 
-	if(ft_strlen(str) >= 12)
+	if(ft_strsize(str) >= 12)
 		return (LONG_MAX);
 	sign = 1;
 	resu = 0;
