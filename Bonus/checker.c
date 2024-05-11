@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 08:45:29 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/11 11:01:08 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/11 11:22:44 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	main(int ac, char **av)
 {
 	t_stack stack_a;
     t_stack stack_b;
-
+	int size;
+	
 	stack_a.head = NULL;
 	stack_b.head = NULL;
 	if (ac < 2)
@@ -68,9 +69,11 @@ int	main(int ac, char **av)
 	ft_check_args_bonus(ac, av, &stack_a);
 	stack_a.head = ft_creat_stack_b(ac, stack_a.str);
 	check_moves(&stack_a.head, &stack_b.head);
-	if(ft_is_sorted_b(stack_a.head))
+	size = ft_stack_len_b(stack_b.head);
+	if(ft_is_sorted_b(stack_a.head) && size == -1)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
 	free_stack_b(&stack_a.head);
+	free_stack_b(&stack_b.head);
 }
