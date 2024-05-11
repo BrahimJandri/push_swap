@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 12:12:11 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/10 15:55:39 by bjandri          ###   ########.fr       */
+/*   Created: 2023/11/22 12:20:51 by bjandri           #+#    #+#             */
+/*   Updated: 2024/05/10 16:01:44 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		sign;
-	long	resu;
-	char	*s;
+	size_t	i;
 
-	sign = 1;
-	resu = 0;
-	s = (char *)str;
-	while ((*s >= 9 && *s <= 13) || *s == 32)
-		s++;
-	if (*s == '-' || *s == '+')
+	if (n == 0)
+		return (0);
+	i = 0;
+	while (n--)
 	{
-		if (*s == '-')
-			sign *= -1;
-		s++;
+		if (s1[i] != '\0' && s1[i] == s2[i])
+			i++;
+		else
+			return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
 	}
-	while (*s >= '0' && *s <= '9')
-	{
-		resu = resu * 10 + *s - '0';
-		s++;
-	}
-	return (resu * sign);
+	return (0);
 }
-

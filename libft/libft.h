@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:22:39 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/03 17:50:34 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/10 16:02:01 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int					ft_printf_str(char *str);
 int					ft_printf_unsigned(unsigned int n);
 size_t				ft_strlen(const char *str);
 long				ft_atol(const char *str);
+int	                ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

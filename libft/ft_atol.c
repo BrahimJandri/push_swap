@@ -6,11 +6,12 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:47:04 by bjandri           #+#    #+#             */
-/*   Updated: 2024/04/21 10:06:56 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/09 18:34:15 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 long	ft_atol(const char *str)
 {
@@ -18,6 +19,8 @@ long	ft_atol(const char *str)
 	long	resu;
 	char	*s;
 
+	if(ft_strlen(str) >= 12)
+		return (LONG_MAX);
 	sign = 1;
 	resu = 0;
 	s = (char *)str;

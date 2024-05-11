@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 11:29:37 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/09 11:45:46 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/11 09:12:38 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ static int	ft_stil_in_index(t_stack *stack_a, int len, int p)
 	while (stack_a)
 	{
 		if ((stack_a)->index <= len + p)
-		{
 			return (i);
-		}
 		stack_a = stack_a->next;
 		i++;
 	}

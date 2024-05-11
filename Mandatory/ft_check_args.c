@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/07 10:16:38 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/10 10:06:11 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static void	ft_check_int(int ac, char **av)
 {
-	int		i;
-	int		j;
-	long	tmp;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < ac)
 	{
 		j = 0;
-		tmp = ft_atol(av[i]);
-		if (tmp > INT_MAX || tmp < INT_MIN)
-			ft_error_msg("Error\n");
 		while (av[i][j])
 		{
+			if (((av[i][j] >= '0' && av[i][j] <= '9') && ((av[i][j + 1] == '-'
+							|| av[i][j + 1] == '+')) && (av[i][j + 2] >= '0'
+						&& av[i][j + 2] <= '9')))
+				ft_error_msg("Error\n");
 			if ((av[i][j] == '-' || av[i][j] == '+') && (av[i][j + 1] == 32))
 				ft_error_msg("Error\n");
 			if ((av[i][j] == '-' || av[i][j] == '+') && (av[i][j + 1]))
@@ -42,12 +42,16 @@ static void	ft_check_int(int ac, char **av)
 
 static void	ft_check_doubl(char **str)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	long	tmp;
 
 	i = 1;
 	while (str[i])
 	{
+		tmp = ft_atol(str[i]);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			ft_error_msg("Error\n");
 		j = i + 1;
 		while (str[j])
 		{

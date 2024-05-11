@@ -6,17 +6,18 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:27:21 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/09 12:14:16 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/09 16:08:58 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
