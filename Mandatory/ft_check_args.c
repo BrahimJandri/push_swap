@@ -6,7 +6,7 @@
 /*   By: bjandri <bjandri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:56:01 by bjandri           #+#    #+#             */
-/*   Updated: 2024/05/10 10:06:11 by bjandri          ###   ########.fr       */
+/*   Updated: 2024/05/13 08:52:27 by bjandri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static void	ft_check_empty(int ac, char **av)
 	{
 		j = 0;
 		len = ft_strlen(av[i]);
-		while (av[j])
+		while (av[i][j])
 		{
 			if (av[i][j] == ' ')
 				j++;
